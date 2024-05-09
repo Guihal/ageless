@@ -1,0 +1,28 @@
+<style>
+    [data-edition-option-id="Ссылки"]{
+        display: none;
+    }
+</style>
+<script>
+    function redirect_link_d(){
+        setTimeout(() => {
+            const hrf = document.querySelector('[data-edition-option-id="Ссылки"] .t-product__option-item_active .t-product__option-title');
+            if(hrf){
+                window.location.href = hrf.textContent;
+            }
+        }, 300);
+    }
+
+    function add_event(){
+        const options = document.querySelectorAll('[data-edition-option-id="Вкус"] .t-product__option-variants_custom label');
+        options.forEach(el => {
+            el.addEventListener('click', redirect_link_d);
+        });
+    }
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            add_event();
+        }, 300);
+    });
+</script>
